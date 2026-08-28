@@ -7,58 +7,6 @@
 import '../styles/design-system.css'
 import '../styles/main.css'
 
-// Tool registration
-const tools = [
-  {
-    id: 'image-compressor',
-    name: 'Image Compressor',
-    url: '../image-compressor/',
-    icon: '📸'
-  },
-  {
-    id: 'pdf-merger',
-    name: 'PDF Merger',
-    url: '../pdf-merger/',
-    icon: '📄'
-  },
-  {
-    id: 'pdf-splitter',
-    name: 'PDF Splitter',
-    url: '../pdf-splitter/',
-    icon: '✂️'
-  },
-  {
-    id: 'pdf-reorder',
-    name: 'PDF Reorder',
-    url: '../pdf-reorder/',
-    icon: '🔄'
-  },
-  {
-    id: 'exif-stripper',
-    name: 'EXIF Stripper',
-    url: '../exif-stripper/',
-    icon: '🗑️'
-  },
-  {
-    id: 'images-to-pdf',
-    name: 'Images to PDF',
-    url: '../images-to-pdf/',
-    icon: '🖼️'
-  },
-  {
-    id: 'pdf-to-images',
-    name: 'PDF to Images',
-    url: '../pdf-to-images/',
-    icon: '🔤'
-  },
-  {
-    id: 'qr-code-generator',
-    name: 'QR Code Generator',
-    url: '../qr-code-generator/',
-    icon: '🌐'
-  }
-];
-
 // Initialize service worker
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('/sw.js')
@@ -70,40 +18,53 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// Add search/filter functionality
+// Search + filter functionality
 document.addEventListener('DOMContentLoaded', () => {
-  const searchInput = document.createElement('input');
-  searchInput.type = 'text';
-  searchInput.placeholder = 'Search tools...';
-  searchInput.className = 'tool-search';
-  searchInput.style.cssText = `
-    width: 100%;
-    max-width: 400px;
-    padding: 12px 16px;
-    margin: 0 auto 2rem;
-    background: var(--bg-app);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--foreground);
-    font-family: var(--font);
-    font-size: 1rem;
-    outline: none;
-  `;
-  
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    hero.insertAdjacentElement('afterend', searchInput);
-  }
-  
+  const searchInput = document.querySelector('.search-input');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const toolCards = document.querySelectorAll('.app-card');
+  const noResults = document.querySelector('.no-results');
+
+  let currentFilter = 'all';
+
   // Filter logic
-  const toolCards = document.querySelectorAll('.tool-card');
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase();
+  function applyFilters() {
+    const query = searchInput ? searchInput.value.toLowerCase() : '';
+    let visibleCount = 0;
+
     toolCards.forEach(card => {
-      const title = card.querySelector('.tool-title').textContent.toLowerCase();
-      const desc = card.querySelector('.tool-description').textContent.toLowerCase();
-      const matches = title.includes(query) || desc.includes(query);
-      card.style.display = matches ? 'flex' : 'none';
+      const title = card.querySelector('.app-card__title')?.textContent.toLowerCase() || '';
+      const desc = card.querySelector('.app-card__desc')?.textContent.toLowerCase() || '';
+      const category = card.dataset.category || '';
+
+      const matchesSearch = title.includes(query) || desc.includes(query);
+      const matchesFilter = currentFilter === 'all' || category === currentFilter;
+
+      if (matchesSearch && matchesFilter) {
+        card.classList.remove('hidden');
+        visibleCount++;
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+
+    if (noResults) {
+      noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  // Search input listener
+  if (searchInput) {
+    searchInput.addEventListener('input', applyFilters);
+  }
+
+  // Filter button listeners
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter || 'all';
+      applyFilters();
     });
   });
 });
