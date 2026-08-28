@@ -1,0 +1,16 @@
+{
+  "name": "Tabox — Browser Tools Hub",
+  "short_name": "Tabox",
+  "description": "Privacy-first browser tools hub. All tools run locally in your browser.",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#08090a",
+  "theme_color": "#08090a",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

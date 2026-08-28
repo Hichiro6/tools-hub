@@ -1,0 +1,322 @@
+/**
+ * Tabox — Main Styles
+ * Utilise le design system unifié (design-system.css)
+ * Charte identique à WaterMark
+ */
+
+/* ===== App Layout ===== */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app > * {
+  width: 100%;
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== Header ===== */
+.header {
+  text-align: center;
+  padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 3vw, 2rem) 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--bg-panel) 95%, transparent);
+}
+
+.header__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+
+.header__logo svg {
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 4px 12px rgba(94, 106, 210, 0.15));
+}
+
+.header__tagline {
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  color: var(--text-secondary);
+  font-weight: 400;
+  margin-bottom: 1rem;
+}
+
+/* ===== Badges ===== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.9rem;
+  font-weight: 510;
+  border: none;
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+}
+
+/* ===== Main ===== */
+.main {
+  flex: 1;
+  padding: 2rem clamp(1.5rem, 3vw, 2rem);
+}
+
+/* ===== Controls (Search + Filter) ===== */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.search-box {
+  position: relative;
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-tertiary);
+  pointer-events: none;
+  width: 20px;
+  height: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 0.875rem 1rem 0.875rem 3rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-family: inherit;
+  min-height: var(--touch-target-min);
+  transition:
+    border-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.search-input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--brand-accent);
+  box-shadow: 0 0 0 3px rgba(113, 112, 255, 0.15);
+}
+
+/* ===== Filters ===== */
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.75rem 1.25rem;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 510;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-family: inherit;
+  min-height: var(--touch-target-min);
+}
+
+.filter-btn:hover:not(.active) {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.filter-btn.active {
+  background: var(--brand-indigo);
+  border-color: var(--brand-indigo);
+  color: white;
+}
+
+/* ===== Apps Grid ===== */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.25rem;
+}
+
+/* ===== App Card ===== */
+.app-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-standard);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--transition-fast);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.app-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--brand-gradient);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-base);
+}
+
+.app-card:hover {
+  background: var(--bg-surface);
+  border-color: var(--brand-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.app-card:hover::before {
+  transform: scaleX(1);
+}
+
+.app-card__icon {
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.app-card__title {
+  font-size: 1.15rem;
+  font-weight: 590;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.app-card__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  flex: 1;
+  line-height: 1.6;
+}
+
+.app-card__badge {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 0.3rem 0.75rem;
+  background: rgba(94, 106, 210, 0.12);
+  color: var(--brand-accent);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 590;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+/* Hide animation */
+.app-card.hidden {
+  display: none;
+}
+
+/* Empty state */
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-tertiary);
+  font-size: 1.1rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: auto;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.footer__privacy {
+  margin-bottom: 1rem;
+}
+
+.footer__privacy .badge {
+  display: inline-block;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.9rem;
+}
+
+.footer__links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.footer__links a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color var(--transition-fast);
+}
+
+.footer__links a:hover {
+  color: var(--brand-accent);
+  text-decoration: underline;
+}
+
+.footer__separator {
+  color: var(--text-tertiary);
+  font-size: 0.9rem;
+}
+
+.footer__bmc:hover {
+  color: #ff813f;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 640px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-box {
+    max-width: none;
+  }
+
+  .apps-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
