@@ -1,142 +1,120 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Hub d'applications web - Navigatez facilement entre toutes mes applications" />
-  <meta name="theme-color" content="#08090a" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabox — Browser Tools Hub</title>
+  <meta name="description" content="Privacy-first browser tools hub. All tools run locally in your browser with zero data retention.">
   
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>Jordan's Tools — Hub d'applications</title>
+  <!-- PWA -->
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="theme-color" content="#5e6ad2">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tabox">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="app">
-    <!-- Header -->
     <header class="header">
-      <div class="container">
-        <div class="header__content">
-          <div class="header__logo">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <rect width="40" height="40" rx="10" fill="#5e6ad2"/>
-              <path d="M10 25L20 10L30 25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="20" cy="28" r="3" fill="white"/>
-            </svg>
-          </div>
-          <h1 class="header__title">Jordan's Tools</h1>
-          <p class="header__subtitle">Portail vers toutes mes applications</p>
-        </div>
+      <div class="logo">
+        <img src="/favicon.svg" alt="Tabox" width="32" height="32">
+        <span class="brand-name">Tabox</span>
       </div>
+      <nav class="nav">
+        <a href="https://github.com/Hichiro6" target="_blank" class="nav-link" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.065 1.815 2.805 1.305 3.495.99.02-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405 1.02 0 2.04.135 3 .405 2.28-1.56 3.285-1.23 3.285-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.buymeacoffee.com/" target="_blank" class="nav-link" aria-label="Buy Me a Coffee">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 3h-3c-1.1 0-2 .9-2 2v3.17c-1.08.52-2.54.52-3.64 0V5c0-1.1-.9-2-2-2H8C6.9 3 6 3.9 6 5v7c0 1.1.9 2 2 2h.71c-.11.33-.21.67-.29 1H6c-1.1 0-2 .9-2 2v1c0 1.7 1.3 3 3 3h9c1.7 0 3-1.3 3-3v-1c0-.23-.03-.45-.08-.67C21.1 17.8 22 16.5 22 15v-7c0-1.1-.9-2-2-2zm-3 14c0 .6-.4 1-1 1H7c-.6 0-1-.4-1-1v-1c0-.6.4-1 1-1h8c.6 0 1 .4 1 1v1zm-7-6H8V5h2v6zm6 0h-2V5h2v6zm3 0h-1V5h1v6z"/></svg>
+        </a>
+      </nav>
     </header>
-
-    <!-- Main Content -->
+    
     <main class="main">
-      <div class="container">
-        <!-- Search & Filter -->
-        <div class="controls">
-          <div class="search-box">
-            <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M17.5 17.5L14.5 14.5M15 9A6 6 0 113 9a6 6 0 0112 0zM9 14V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <input 
-              type="text" 
-              id="searchInput" 
-              class="search-input" 
-              placeholder="Rechercher une application..." 
-              autocomplete="off"
-              aria-label="Rechercher une application"
-            />
-          </div>
-          
-          <div class="filters">
-            <button class="filter-btn active" data-category="all">Tout</button>
-            <button class="filter-btn" data-category="pdf">PDF</button>
-            <button class="filter-btn" data-category="image">Images</button>
-            <button class="filter-btn" data-category="security">Sécurité</button>
-          </div>
+      <section class="hero">
+        <h1 class="hero-title">Browser Tools Hub</h1>
+        <p class="hero-subtitle">All tools run locally in your browser. No uploads. No tracking. Zero data retention.</p>
+      </section>
+      
+      <section class="tools-grid">
+        <div class="tool-card">
+          <div class="tool-icon">📸</div>
+          <h3 class="tool-title">Image Compressor</h3>
+          <p class="tool-description">Compress images client-side</p>
+          <a href="../image-compressor/" class="tool-link">Launch →</a>
         </div>
-
-        <!-- Apps Grid -->
-        <div class="apps-grid" id="appsGrid">
-          <!-- WaterMark -->
-          <a href="https://hichiro6.github.io/watermark/" class="app-card" data-category="security">
-            <div class="app-card__icon">🔒</div>
-            <h2 class="app-card__title">WaterMark</h2>
-            <p class="app-card__desc">Watermarking client-side — documents jamais quittent le navigateur</p>
-            <span class="app-card__badge">Privacy First</span>
-          </a>
-
-          <!-- PDF Tools -->
-          <a href="https://hichiro6.github.io/pdf-merger/" class="app-card" data-category="pdf">
-            <div class="app-card__icon">📄</div>
-            <h2 class="app-card__title">PDF Merger</h2>
-            <p class="app-card__desc">Fusionner plusieurs PDF en un seul fichier</p>
-          </a>
-
-          <a href="https://hichiro6.github.io/pdf-splitter/" class="app-card" data-category="pdf">
-            <div class="app-card__icon">✂️</div>
-            <h2 class="app-card__title">PDF Splitter</h2>
-            <p class="app-card__desc">Diviser un PDF en plusieurs parties</p>
-          </a>
-
-          <a href="https://hichiro6.github.io/pdf-compressor/" class="app-card" data-category="pdf">
-            <div class="app-card__icon">📦</div>
-            <h2 class="app-card__title">PDF Compressor</h2>
-            <p class="app-card__desc">Compresser les fichiers PDF pour réduire la taille</p>
-          </a>
-
-          <a href="https://hichiro6.github.io/pdf-to-images/" class="app-card" data-category="pdf">
-            <div class="app-card__icon">🖼️</div>
-            <h2 class="app-card__title">PDF to Images</h2>
-            <p class="app-card__desc">Convertir un PDF en images PNG ou JPG</p>
-          </a>
-
-          <a href="https://hichiro6.github.io/pdf-reorder/" class="app-card" data-category="pdf">
-            <div class="app-card__icon">🔄</div>
-            <h2 class="app-card__title">PDF Reorder</h2>
-            <p class="app-card__desc">Réorganiser les pages d'un PDF</p>
-          </a>
-
-          <a href="https://hichiro6.github.io/images-to-pdf/" class="app-card" data-category="pdf">
-            <div class="app-card__icon">➡️📄</div>
-            <h2 class="app-card__title">Images to PDF</h2>
-            <p class="app-card__desc">Convertir plusieurs images en un seul PDF</p>
-          </a>
-
-          <!-- Image Tools -->
-          <a href="https://hichiro6.github.io/image-compressor/" class="app-card" data-category="image">
-            <div class="app-card__icon">🗜️</div>
-            <h2 class="app-card__title">Image Compressor</h2>
-            <p class="app-card__desc">Compresser des images sans perte de qualité</p>
-          </a>
-
-          <a href="https://hichiro6.github.io/exif-stripper/" class="app-card" data-category="image security">
-            <div class="app-card__icon">🧹</div>
-            <h2 class="app-card__title">Exif Stripper</h2>
-            <p class="app-card__desc">Supprimer les métadonnées EXIF des photos</p>
-            <span class="app-card__badge">Privacy</span>
-          </a>
-
-          <!-- Utilities -->
-          <a href="https://hichiro6.github.io/qr-code-generator/" class="app-card" data-category="other">
-            <div class="app-card__icon">📱</div>
-            <h2 class="app-card__title">QR Code Generator</h2>
-            <p class="app-card__desc">Générer des codes QR personnalisés</p>
-          </a>
+        
+        <div class="tool-card">
+          <div class="tool-icon">📄</div>
+          <h3 class="tool-title">PDF Merger</h3>
+          <p class="tool-description">Merge PDFs locally in browser</p>
+          <a href="../pdf-merger/" class="tool-link">Launch →</a>
         </div>
-
-        <!-- Stats Footer -->
-        <footer class="footer">
-          <div class="footer__stats">
-            <span><strong id="visibleCount">10</strong> applications disponibles</span>
-            <span>•</span>
-            <span>Toutes hébergées sur <strong>GitHub Pages</strong></span>
-          </div>
-          <p class="footer__copyright">© 2026 Jordan — Privacy-first web tools</p>
-        </footer>
-      </div>
+        
+        <div class="tool-card">
+          <div class="tool-icon">✂️</div>
+          <h3 class="tool-title">PDF Splitter</h3>
+          <p class="tool-description">Split PDF pages client-side</p>
+          <a href="../pdf-splitter/" class="tool-link">Launch →</a>
+        </div>
+        
+        <div class="tool-card">
+          <div class="tool-icon">🔄</div>
+          <h3 class="tool-title">PDF Reorder</h3>
+          <p class="tool-description">Reorganize PDF pages</p>
+          <a href="../pdf-reorder/" class="tool-link">Launch →</a>
+        </div>
+        
+        <div class="tool-card">
+          <div class="tool-icon">🗑️</div>
+          <h3 class="tool-title">EXIF Stripper</h3>
+          <p class="tool-description">Remove metadata from images</p>
+          <a href="../exif-stripper/" class="tool-link">Launch →</a>
+        </div>
+        
+        <div class="tool-card">
+          <div class="tool-icon">🖼️</div>
+          <h3 class="tool-title">Images to PDF</h3>
+          <p class="tool-description">Convert images to PDF</p>
+          <a href="../images-to-pdf/" class="tool-link">Launch →</a>
+        </div>
+        
+        <div class="tool-card">
+          <div class="tool-icon">🔤</div>
+          <h3 class="tool-title">PDF to Images</h3>
+          <p class="tool-description">Extract pages as images</p>
+          <a href="../pdf-to-images/" class="tool-link">Launch →</a>
+        </div>
+        
+        <div class="tool-card">
+          <div class="tool-icon">🌐</div>
+          <h3 class="tool-title">QR Code Generator</h3>
+          <p class="tool-description">Create QR codes locally</p>
+          <a href="../qr-code-generator/" class="tool-link">Launch →</a>
+        </div>
+      </section>
     </main>
+    
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-brand">Tabox</div>
+        <div class="footer-links">
+          <a href="https://github.com/Hichiro6" target="_blank" class="footer-link">GitHub</a>
+          <a href="https://www.buymeacoffee.com/" target="_blank" class="footer-link">Buy Me a Coffee</a>
+          <span class="privacy-badge">🛡️ Zero Data Retention</span>
+        </div>
+      </div>
+      <p class="footer-text">Documents never leave your browser. Privacy-first tools built by Hichiro6.</p>
+    </footer>
   </div>
-
+  
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>
