@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Hub d'applications web - Navigatez facilement entre toutes mes applications" />
+  <meta name="theme-color" content="#08090a" />
+  
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>Jordan's Tools — Hub d'applications</title>
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="header__logo">
+            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="40" height="40" rx="10" fill="#5e6ad2"/>
+              <path d="M10 25L20 10L30 25" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="20" cy="28" r="3" fill="white"/>
+            </svg>
+          </div>
+          <h1 class="header__title">Jordan's Tools</h1>
+          <p class="header__subtitle">Portail vers toutes mes applications</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+      <div class="container">
+        <!-- Search & Filter -->
+        <div class="controls">
+          <div class="search-box">
+            <svg class="search-icon" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M17.5 17.5L14.5 14.5M15 9A6 6 0 113 9a6 6 0 0112 0zM9 14V9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <input 
+              type="text" 
+              id="searchInput" 
+              class="search-input" 
+              placeholder="Rechercher une application..." 
+              autocomplete="off"
+              aria-label="Rechercher une application"
+            />
+          </div>
+          
+          <div class="filters">
+            <button class="filter-btn active" data-category="all">Tout</button>
+            <button class="filter-btn" data-category="pdf">PDF</button>
+            <button class="filter-btn" data-category="image">Images</button>
+            <button class="filter-btn" data-category="security">Sécurité</button>
+          </div>
+        </div>
+
+        <!-- Apps Grid -->
+        <div class="apps-grid" id="appsGrid">
+          <!-- WaterMark -->
+          <a href="https://hichiro6.github.io/watermark/" class="app-card" data-category="security">
+            <div class="app-card__icon">🔒</div>
+            <h2 class="app-card__title">WaterMark</h2>
+            <p class="app-card__desc">Watermarking client-side — documents jamais quittent le navigateur</p>
+            <span class="app-card__badge">Privacy First</span>
+          </a>
+
+          <!-- PDF Tools -->
+          <a href="https://hichiro6.github.io/pdf-merger/" class="app-card" data-category="pdf">
+            <div class="app-card__icon">📄</div>
+            <h2 class="app-card__title">PDF Merger</h2>
+            <p class="app-card__desc">Fusionner plusieurs PDF en un seul fichier</p>
+          </a>
+
+          <a href="https://hichiro6.github.io/pdf-splitter/" class="app-card" data-category="pdf">
+            <div class="app-card__icon">✂️</div>
+            <h2 class="app-card__title">PDF Splitter</h2>
+            <p class="app-card__desc">Diviser un PDF en plusieurs parties</p>
+          </a>
+
+          <a href="https://hichiro6.github.io/pdf-compressor/" class="app-card" data-category="pdf">
+            <div class="app-card__icon">📦</div>
+            <h2 class="app-card__title">PDF Compressor</h2>
+            <p class="app-card__desc">Compresser les fichiers PDF pour réduire la taille</p>
+          </a>
+
+          <a href="https://hichiro6.github.io/pdf-to-images/" class="app-card" data-category="pdf">
+            <div class="app-card__icon">🖼️</div>
+            <h2 class="app-card__title">PDF to Images</h2>
+            <p class="app-card__desc">Convertir un PDF en images PNG ou JPG</p>
+          </a>
+
+          <a href="https://hichiro6.github.io/pdf-reorder/" class="app-card" data-category="pdf">
+            <div class="app-card__icon">🔄</div>
+            <h2 class="app-card__title">PDF Reorder</h2>
+            <p class="app-card__desc">Réorganiser les pages d'un PDF</p>
+          </a>
+
+          <a href="https://hichiro6.github.io/images-to-pdf/" class="app-card" data-category="pdf">
+            <div class="app-card__icon">➡️📄</div>
+            <h2 class="app-card__title">Images to PDF</h2>
+            <p class="app-card__desc">Convertir plusieurs images en un seul PDF</p>
+          </a>
+
+          <!-- Image Tools -->
+          <a href="https://hichiro6.github.io/image-compressor/" class="app-card" data-category="image">
+            <div class="app-card__icon">🗜️</div>
+            <h2 class="app-card__title">Image Compressor</h2>
+            <p class="app-card__desc">Compresser des images sans perte de qualité</p>
+          </a>
+
+          <a href="https://hichiro6.github.io/exif-stripper/" class="app-card" data-category="image security">
+            <div class="app-card__icon">🧹</div>
+            <h2 class="app-card__title">Exif Stripper</h2>
+            <p class="app-card__desc">Supprimer les métadonnées EXIF des photos</p>
+            <span class="app-card__badge">Privacy</span>
+          </a>
+
+          <!-- Utilities -->
+          <a href="https://hichiro6.github.io/qr-code-generator/" class="app-card" data-category="other">
+            <div class="app-card__icon">📱</div>
+            <h2 class="app-card__title">QR Code Generator</h2>
+            <p class="app-card__desc">Générer des codes QR personnalisés</p>
+          </a>
+        </div>
+
+        <!-- Stats Footer -->
+        <footer class="footer">
+          <div class="footer__stats">
+            <span><strong id="visibleCount">10</strong> applications disponibles</span>
+            <span>•</span>
+            <span>Toutes hébergées sur <strong>GitHub Pages</strong></span>
+          </div>
+          <p class="footer__copyright">© 2026 Jordan — Privacy-first web tools</p>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
