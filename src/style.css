@@ -9,10 +9,10 @@
   --text-secondary: #a1a1aa;
   --text-muted: #71717a;
   --accent: #5e6ad2;
-  --accent-hover: #717eeb;
-  --accent-glow: rgba(94, 106, 210, 0.15);
+  --accent-hover: #9a9bff;
+  --accent-glow: rgba(154, 155, 255, 0.15);
   --badge-bg: rgba(94, 106, 210, 0.12);
-  --badge-text: #8b95e8;
+  --badge-text: #9a9bff;
 
   /* Spacing */
   --radius: 12px;
