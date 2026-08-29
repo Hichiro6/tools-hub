@@ -102,9 +102,10 @@ function applyLang(lang) {
   const noResults = document.querySelector('.no-results');
   if (noResults) noResults.textContent = t.noResults;
 
-  // Selector sync
-  const selector = document.querySelector('.lang-selector');
-  if (selector) selector.value = lang;
+  // Active button sync
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
 
   // <html lang="...">
   document.documentElement.lang = lang;
@@ -115,14 +116,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Apply saved language
   applyLang(currentLang);
 
-  // Language selector
-  const langSelector = document.querySelector('.lang-selector');
-  if (langSelector) {
-    langSelector.addEventListener('change', (e) => {
-      applyLang(e.target.value);
+  // Language selector buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      applyLang(btn.dataset.lang);
       applyFilters(); // re-announce in new language
     });
-  }
+  });
 
   const searchInput = document.querySelector('.search-input');
   const filterBtns = document.querySelectorAll('.filter-btn');

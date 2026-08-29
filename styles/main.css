@@ -61,25 +61,40 @@
 }
 
 .lang-selector {
-  appearance: none;
-  -webkit-appearance: none;
-  padding: 0.5rem 1.75rem 0.5rem 1rem;
-  font-size: 0.95rem;
-  font-family: inherit;
-  color: var(--text-primary);
-  background: var(--bg-panel);
+  display: inline-flex;
+  gap: 0.25rem;
+  align-items: center;
+  padding: 0.25rem 0.5rem;
+  background: var(--bg-elevated);
+  border-radius: 8px;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M8 9l4-4 4 4m0 6l-4 4-4-4'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 0.5rem center;
 }
 
-.lang-selector:focus {
-  outline: none;
-  border-color: var(--brand-indigo);
-  box-shadow: 0 0 0 3px rgba(94, 106, 210, 0.2);
+.lang-btn {
+  background: transparent;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  opacity: 0.6;
+  min-width: 48px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-btn:hover {
+  opacity: 0.85;
+  background: var(--surface-hover);
+}
+
+.lang-btn.active {
+  opacity: 1;
+  background: var(--brand-accent);
+  box-shadow: inset 0 0 0 2px rgba(255,255,255,0.2);
 }
 
 /* ===== Badges ===== */
