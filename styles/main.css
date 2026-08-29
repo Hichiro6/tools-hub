@@ -1,5 +1,5 @@
 /**
- * Tabox — Main Styles
+ * Tools Hub — Main Styles
  * Utilise le design system unifié (design-system.css)
  * Charte identique à WaterMark
  */
@@ -50,7 +50,36 @@
   font-size: clamp(1rem, 2vw, 1.125rem);
   color: var(--text-secondary);
   font-weight: 400;
-  margin-bottom: 1rem;
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.lang-selector {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 0.5rem 1.75rem 0.5rem 1rem;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--text-primary);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2'%3E%3Cpath d='M8 9l4-4 4 4m0 6l-4 4-4-4'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+}
+
+.lang-selector:focus {
+  outline: none;
+  border-color: var(--brand-indigo);
+  box-shadow: 0 0 0 3px rgba(94, 106, 210, 0.2);
 }
 
 /* ===== Badges ===== */
