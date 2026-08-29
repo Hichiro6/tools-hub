@@ -1,14 +1,14 @@
 // Tabox Service Worker — offline-first cache
 const CACHE_NAME = 'tabox-v1';
-const ASSETS = ['/', '/index.html', '/manifest.json', '/favicon.svg', '/styles/main.css'];
+const ASSETS = ['./', './index.html', './manifest.json', './favicon.svg', './styles/main.css'];
 
-// Install: pré-cache les assets critiques
+// Install: pre-cache critical assets
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS)));
   self.skipWaiting();
 });
 
-// Activate: nettoie les anciens caches
+// Activate: clean old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
@@ -20,7 +20,7 @@ self.addEventListener('activate', (event) => {
   self.clients.claim();
 });
 
-// Fetch: cache-first pour les assets, network-first pour le reste
+// Fetch: cache-first for assets, network-first for the rest
 self.addEventListener('fetch', (event) => {
   const { request } = event;
 

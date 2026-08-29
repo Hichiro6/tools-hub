@@ -7,10 +7,10 @@
   <meta name="description" content="Privacy-first browser tools hub. All tools run locally in your browser with zero data retention.">
   
   <!-- PWA -->
-  <link rel="manifest" href="/manifest.json">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="apple-touch-icon" href="/favicon.svg">
-  <meta name="theme-color" content="#5e6ad2">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="apple-touch-icon" href="./favicon.svg">
+  <meta name="theme-color" content="#08090a">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Tabox">
@@ -21,90 +21,98 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Skip to content for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  
   <div class="app">
     <header class="header">
       <div class="header__logo">
-        <img src="/favicon.svg" alt="Tabox" width="48" height="48">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="32" height="32" rx="8" fill="#5e6ad2"/>
+          <path d="M8 20L16 8L24 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 20H20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <h1>Tabox</h1>
       </div>
       <p class="header__tagline">Privacy-first browser tools. All local. No uploads. No tracking.</p>
-      <div class="badge">🛡️ Zero Data Retention</div>
+      <span class="badge">🛡️ Zero Data Retention</span>
     </header>
     
-    <main class="main">
+    <main class="main" id="main-content">
       <div class="controls">
         <div class="search-box">
-          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="11" cy="11" r="8"/>
             <path d="m21 21-4.35-4.35"/>
           </svg>
           <input type="text" class="search-input" placeholder="Search tools..." aria-label="Search tools">
         </div>
-        <div class="filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="image">Image</button>
-          <button class="filter-btn" data-filter="pdf">PDF</button>
+        <div class="filters" role="group" aria-label="Filter tools by category">
+          <button class="filter-btn active" data-filter="all" type="button">All</button>
+          <button class="filter-btn" data-filter="image" type="button">Image</button>
+          <button class="filter-btn" data-filter="pdf" type="button">PDF</button>
         </div>
       </div>
       
-      <section class="apps-grid">
-        <a href="../image-compressor/" class="app-card" data-category="image">
-          <div class="app-card__icon">📸</div>
+      <section class="apps-grid" aria-label="Available tools">
+        <a href="./image-compressor/" class="app-card" data-category="image">
+          <div class="app-card__icon" aria-hidden="true">📸</div>
           <h3 class="app-card__title">Image Compressor</h3>
           <p class="app-card__desc">Compress images client-side</p>
           <span class="app-card__badge">Image</span>
         </a>
         
-        <a href="../pdf-merger/" class="app-card" data-category="pdf">
-          <div class="app-card__icon">📄</div>
+        <a href="./pdf-merger/" class="app-card" data-category="pdf">
+          <div class="app-card__icon" aria-hidden="true">📄</div>
           <h3 class="app-card__title">PDF Merger</h3>
           <p class="app-card__desc">Merge PDFs locally in browser</p>
           <span class="app-card__badge">PDF</span>
         </a>
         
-        <a href="../pdf-splitter/" class="app-card" data-category="pdf">
-          <div class="app-card__icon">✂️</div>
+        <a href="./pdf-splitter/" class="app-card" data-category="pdf">
+          <div class="app-card__icon" aria-hidden="true">✂️</div>
           <h3 class="app-card__title">PDF Splitter</h3>
           <p class="app-card__desc">Split PDF pages client-side</p>
           <span class="app-card__badge">PDF</span>
         </a>
         
-        <a href="../pdf-reorder/" class="app-card" data-category="pdf">
-          <div class="app-card__icon">🔄</div>
+        <a href="./pdf-reorder/" class="app-card" data-category="pdf">
+          <div class="app-card__icon" aria-hidden="true">🔄</div>
           <h3 class="app-card__title">PDF Reorder</h3>
           <p class="app-card__desc">Reorganize PDF pages</p>
           <span class="app-card__badge">PDF</span>
         </a>
         
-        <a href="../exif-stripper/" class="app-card" data-category="image">
-          <div class="app-card__icon">🗑️</div>
+        <a href="./exif-stripper/" class="app-card" data-category="image">
+          <div class="app-card__icon" aria-hidden="true">🗑️</div>
           <h3 class="app-card__title">EXIF Stripper</h3>
           <p class="app-card__desc">Remove metadata from images</p>
           <span class="app-card__badge">Image</span>
         </a>
         
-        <a href="../images-to-pdf/" class="app-card" data-category="image">
-          <div class="app-card__icon">🖼️</div>
+        <a href="./images-to-pdf/" class="app-card" data-category="image">
+          <div class="app-card__icon" aria-hidden="true">🖼️</div>
           <h3 class="app-card__title">Images to PDF</h3>
           <p class="app-card__desc">Convert images to PDF</p>
           <span class="app-card__badge">Image</span>
         </a>
         
-        <a href="../pdf-to-images/" class="app-card" data-category="pdf">
-          <div class="app-card__icon">🔤</div>
+        <a href="./pdf-to-images/" class="app-card" data-category="pdf">
+          <div class="app-card__icon" aria-hidden="true">🔤</div>
           <h3 class="app-card__title">PDF to Images</h3>
           <p class="app-card__desc">Extract pages as images</p>
           <span class="app-card__badge">PDF</span>
         </a>
         
-        <a href="../qr-code-generator/" class="app-card" data-category="image">
-          <div class="app-card__icon">🌐</div>
+        <a href="./qr-code-generator/" class="app-card" data-category="image">
+          <div class="app-card__icon" aria-hidden="true">🌐</div>
           <h3 class="app-card__title">QR Code Generator</h3>
           <p class="app-card__desc">Create QR codes locally</p>
-          <span class="app-card__badge">Utility</span>
+          <span class="app-card__badge">Image</span>
         </a>
       </section>
       
-      <div class="no-results" style="display: none;">No tools found. Try a different search.</div>
+      <div class="no-results" style="display: none;" role="status">No tools found. Try a different search.</div>
     </main>
     
     <footer class="footer">
@@ -112,13 +120,16 @@
         <span class="badge">🛡️ Zero Data Retention</span>
       </div>
       <div class="footer__links">
-        <a href="https://github.com/Hichiro6" target="_blank" class="footer__link">GitHub</a>
-        <span class="footer__separator">·</span>
-        <a href="https://www.buymeacoffee.com/" target="_blank" class="footer__bmc">Buy Me a Coffee</a>
+        <a href="https://github.com/Hichiro6" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
+        <span class="footer__separator" aria-hidden="true">·</span>
+        <a href="https://www.buymeacoffee.com/" target="_blank" rel="noopener noreferrer" class="footer__bmc">Buy Me a Coffee</a>
       </div>
     </footer>
   </div>
   
-  <script type="module" src="/src/main.js"></script>
+  <!-- Screen reader live region for announcements -->
+  <div id="sr-live" role="status" aria-live="polite" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0"></div>
+  
+  <script type="module" src="./src/main.js"></script>
 </body>
 </html>

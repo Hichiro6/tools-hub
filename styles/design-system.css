@@ -5,10 +5,11 @@
  * Principes : minimalisme sombre moderne, contrastes élevés (WCAG AA+),
  * touch targets ≥ 48px, responsive mobile-first, animations subtiles,
  * typographie claire (base 18px)
+ * Dark mode is the default; light mode only via [data-theme="light"]
  */
 
 :root {
-  /* Palette Linear Dark Mode */
+  /* Palette Linear Dark Mode (default) */
   --bg-marketing: #08090a;
   --bg-panel: #0f1011;
   --bg-surface: #191a1b;
@@ -55,26 +56,25 @@
   --transition-slow: 0.4s ease;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --bg-marketing: #f7f8f8;
-    --bg-panel: #f3f4f5;
-    --bg-surface: #ffffff;
-    --bg-elevated: #e5e7eb;
+/* Light mode only when explicitly requested via data-theme attribute */
+[data-theme="light"] {
+  --bg-marketing: #f7f8f8;
+  --bg-panel: #f3f4f5;
+  --bg-surface: #ffffff;
+  --bg-elevated: #e5e7eb;
 
-    --text-primary: #171717;
-    --text-secondary: #444444;
-    --text-tertiary: #6b6b6b;
-    --text-quaternary: #8c8c8c;
+  --text-primary: #171717;
+  --text-secondary: #444444;
+  --text-tertiary: #6b6b6b;
+  --text-quaternary: #8c8c8c;
 
-    --border-subtle: rgba(0, 0, 0, 0.08);
-    --border-standard: rgba(0, 0, 0, 0.12);
-    --border-prominent: #d0d6e0;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-standard: rgba(0, 0, 0, 0.12);
+  --border-prominent: #d0d6e0;
 
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
-  }
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
 }
 
 /* ===== Reset & Base ===== */
@@ -93,9 +93,7 @@ html {
 }
 
 body {
-  font-family:
-    ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-    sans-serif;
+  font-family: "Inter", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   background: var(--bg-marketing);
   color: var(--text-primary);
   line-height: var(--line-height-relaxed);
@@ -128,4 +126,28 @@ body {
     --border-standard: rgba(255, 255, 255, 0.5);
     --text-tertiary: #b0b0b0;
   }
+
+  .filter-btn.active,
+  .app-card__badge {
+    border-width: 2px;
+  }
+}
+
+/* ===== Skip Link (Accessibility) ===== */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--brand-indigo);
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 var(--radius-md) 0;
+  text-decoration: none;
+  font-weight: 510;
+  z-index: 1000;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 0;
 }

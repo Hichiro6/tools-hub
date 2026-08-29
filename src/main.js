@@ -7,9 +7,9 @@
 import '../styles/design-system.css'
 import '../styles/main.css'
 
-// Initialize service worker
+// Initialize service worker (relative path for portability)
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js')
+  navigator.serviceWorker.register('./sw.js')
     .then(registration => {
       console.log('Tabox SW registered:', registration.scope);
     })
@@ -24,8 +24,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const filterBtns = document.querySelectorAll('.filter-btn');
   const toolCards = document.querySelectorAll('.app-card');
   const noResults = document.querySelector('.no-results');
+  const srLive = document.getElementById('sr-live');
 
   let currentFilter = 'all';
+
+  // Announce to screen readers
+  function announce(message) {
+    if (srLive) {
+      srLive.textContent = message;
+    }
+  }
 
   // Filter logic
   function applyFilters() {
@@ -51,6 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (noResults) {
       noResults.style.display = visibleCount === 0 ? 'block' : 'none';
     }
+
+    announce(`${visibleCount} ${visibleCount === 1 ? 'tool' : 'tools'} found`);
   }
 
   // Search input listener
@@ -59,12 +69,36 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Filter button listeners
-  filterBtns.forEach(btn => {
+  filterBtns.forEach((btn, index) => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentFilter = btn.dataset.filter || 'all';
       applyFilters();
+    });
+
+    // Keyboard navigation: arrow keys to move between filter buttons (WCAG 2.1)
+    btn.addEventListener('keydown', (e) => {
+      let targetIndex = null;
+
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+        e.preventDefault();
+        targetIndex = (index + 1) % filterBtns.length;
+      } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+        e.preventDefault();
+        targetIndex = (index - 1 + filterBtns.length) % filterBtns.length;
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        targetIndex = 0;
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        targetIndex = filterBtns.length - 1;
+      }
+
+      if (targetIndex !== null) {
+        filterBtns[targetIndex].focus();
+        filterBtns[targetIndex].click();
+      }
     });
   });
 });
