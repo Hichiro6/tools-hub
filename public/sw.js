@@ -1,5 +1,5 @@
-// Tabox Service Worker — offline-first cache
-const CACHE_NAME = 'tabox-v1';
+// Tools Hub Service Worker — offline-first cache
+const CACHE_NAME = 'tools-hub-v1';
 const ASSETS = ['./', './index.html', './manifest.json', './favicon.svg', './styles/main.css'];
 
 // Install: pre-cache critical assets

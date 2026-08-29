@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tabox — Browser Tools Hub</title>
-  <meta name="description" content="Privacy-first browser tools hub. All tools run locally in your browser with zero data retention.">
+  <title>Tools Hub — Browser Tools Collection</title>
+  <meta name="description" content="Privacy-first browser tools collection. All tools run locally in your browser.">
   
   <!-- PWA -->
   <link rel="manifest" href="./manifest.json">
@@ -13,7 +13,7 @@
   <meta name="theme-color" content="#08090a">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Tabox">
+  <meta name="apple-mobile-web-app-title" content="Tools Hub">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,10 +32,15 @@
           <path d="M8 20L16 8L24 20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M12 20H20" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-        <h1>Tabox</h1>
+        <h1>Tools Hub</h1>
       </div>
-      <p class="header__tagline">Privacy-first browser tools. All local. No uploads. No tracking.</p>
-      <span class="badge">🛡️ Zero Data Retention</span>
+      <div class="header__actions">
+        <p class="header__tagline">Privacy-first browser tools. All local.</p>
+        <select class="lang-selector" aria-label="Language selector">
+          <option value="en" selected>English</option>
+          <option value="fr">Français</option>
+        </select>
+      </div>
     </header>
     
     <main class="main" id="main-content">
@@ -55,56 +60,56 @@
       </div>
       
       <section class="apps-grid" aria-label="Available tools">
-        <a href="./image-compressor/" class="app-card" data-category="image">
+        <a href="https://hichiro6.github.io/image-compressor/" class="app-card" data-category="image" target="_blank" rel="noopener noreferrer">
           <div class="app-card__icon" aria-hidden="true">📸</div>
           <h3 class="app-card__title">Image Compressor</h3>
           <p class="app-card__desc">Compress images client-side</p>
           <span class="app-card__badge">Image</span>
         </a>
         
-        <a href="./pdf-merger/" class="app-card" data-category="pdf">
+        <a href="https://hichiro6.github.io/pdf-merger/" class="app-card" data-category="pdf" target="_blank" rel="noopener noreferrer">
           <div class="app-card__icon" aria-hidden="true">📄</div>
           <h3 class="app-card__title">PDF Merger</h3>
           <p class="app-card__desc">Merge PDFs locally in browser</p>
           <span class="app-card__badge">PDF</span>
         </a>
         
-        <a href="./pdf-splitter/" class="app-card" data-category="pdf">
+        <a href="https://hichiro6.github.io/pdf-splitter/" class="app-card" data-category="pdf" target="_blank" rel="noopener noreferrer">
           <div class="app-card__icon" aria-hidden="true">✂️</div>
           <h3 class="app-card__title">PDF Splitter</h3>
           <p class="app-card__desc">Split PDF pages client-side</p>
           <span class="app-card__badge">PDF</span>
         </a>
         
-        <a href="./pdf-reorder/" class="app-card" data-category="pdf">
+        <a href="https://hichiro6.github.io/pdf-reorder/" class="app-card" data-category="pdf" target="_blank" rel="noopener noreferrer">
           <div class="app-card__icon" aria-hidden="true">🔄</div>
           <h3 class="app-card__title">PDF Reorder</h3>
           <p class="app-card__desc">Reorganize PDF pages</p>
           <span class="app-card__badge">PDF</span>
         </a>
         
-        <a href="./exif-stripper/" class="app-card" data-category="image">
+        <a href="https://hichiro6.github.io/exif-stripper/" class="app-card" data-category="image" target="_blank" rel="noopener noreferrer">
           <div class="app-card__icon" aria-hidden="true">🗑️</div>
           <h3 class="app-card__title">EXIF Stripper</h3>
           <p class="app-card__desc">Remove metadata from images</p>
           <span class="app-card__badge">Image</span>
         </a>
         
-        <a href="./images-to-pdf/" class="app-card" data-category="image">
+        <a href="https://hichiro6.github.io/images-to-pdf/" class="app-card" data-category="image" target="_blank" rel="noopener noreferrer">
           <div class="app-card__icon" aria-hidden="true">🖼️</div>
           <h3 class="app-card__title">Images to PDF</h3>
           <p class="app-card__desc">Convert images to PDF</p>
           <span class="app-card__badge">Image</span>
         </a>
         
-        <a href="./pdf-to-images/" class="app-card" data-category="pdf">
+        <a href="https://hichiro6.github.io/pdf-to-images/" class="app-card" data-category="pdf" target="_blank" rel="noopener noreferrer">
           <div class="app-card__icon" aria-hidden="true">🔤</div>
           <h3 class="app-card__title">PDF to Images</h3>
           <p class="app-card__desc">Extract pages as images</p>
           <span class="app-card__badge">PDF</span>
         </a>
         
-        <a href="./qr-code-generator/" class="app-card" data-category="image">
+        <a href="https://hichiro6.github.io/qr-code-generator/" class="app-card" data-category="image" target="_blank" rel="noopener noreferrer">
           <div class="app-card__icon" aria-hidden="true">🌐</div>
           <h3 class="app-card__title">QR Code Generator</h3>
           <p class="app-card__desc">Create QR codes locally</p>
@@ -116,11 +121,8 @@
     </main>
     
     <footer class="footer">
-      <div class="footer__privacy">
-        <span class="badge">🛡️ Zero Data Retention</span>
-      </div>
       <div class="footer__links">
-        <a href="https://github.com/Hichiro6" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
+        <a href="https://github.com/Hichiro6/tools-hub" target="_blank" rel="noopener noreferrer" class="footer__link">GitHub</a>
         <span class="footer__separator" aria-hidden="true">·</span>
         <a href="https://www.buymeacoffee.com/" target="_blank" rel="noopener noreferrer" class="footer__bmc">Buy Me a Coffee</a>
       </div>

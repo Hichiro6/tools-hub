@@ -1,7 +1,7 @@
 {
-  "name": "Tabox — Browser Tools Hub",
-  "short_name": "Tabox",
-  "description": "Privacy-first browser tools hub. All tools run locally in your browser.",
+  "name": "Tools Hub — Browser Tools Collection",
+  "short_name": "Tools Hub",
+  "description": "Privacy-first browser tools collection. All tools run locally in your browser.",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#08090a",
