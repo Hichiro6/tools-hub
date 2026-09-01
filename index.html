@@ -51,10 +51,10 @@
           </svg>
           <input type="text" class="search-input" placeholder="Search tools..." aria-label="Search tools">
         </div>
-        <div class="filters" role="group" aria-label="Filter tools by category">
-          <button class="filter-btn active" data-filter="all" type="button">All</button>
-          <button class="filter-btn" data-filter="image" type="button">Image</button>
-          <button class="filter-btn" data-filter="pdf" type="button">PDF</button>
+        <div class="filters" role="radiogroup" aria-label="Filter tools by category">
+          <button class="filter-btn active" data-filter="all" type="button" role="radio" aria-checked="true">All</button>
+          <button class="filter-btn" data-filter="image" type="button" role="radio" aria-checked="false">Image</button>
+          <button class="filter-btn" data-filter="pdf" type="button" role="radio" aria-checked="false">PDF</button>
         </div>
       </div>
       
